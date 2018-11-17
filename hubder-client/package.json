@@ -25,6 +25,8 @@
     "not op_mini all"
   ],
   "devDependencies": {
-    "react-native-bpk-component-horizontal-nav": "^4.0.3"
+    "bpk-component-grid": "^1.1.99",
+    "bpk-component-horizontal-nav": "^2.3.32",
+    "bpk-component-text": "^1.0.90"
   }
 }
