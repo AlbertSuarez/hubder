@@ -72,6 +72,7 @@ CREATE TABLE hubder_match
     id character varying(100) NOT NULL COLLATE pg_catalog."default",
     user_student character varying(100) NOT NULL COLLATE pg_catalog."default",
     user_teacher character varying(100) NOT NULL COLLATE pg_catalog."default",
+    project_id character varying(100) NOT NULL COLLATE pg_catalog."default",
     specialization character varying(100) NOT NULL COLLATE pg_catalog."default",
     status character varying(100) NOT NULL COLLATE pg_catalog."default" DEFAULT 'PENDING'::character varying,
     CONSTRAINT hubder_match_pkey PRIMARY KEY (id),
@@ -81,6 +82,10 @@ CREATE TABLE hubder_match
         ON DELETE NO ACTION,
     CONSTRAINT hubder_match_user_teacher_fkey FOREIGN KEY (user_teacher)
         REFERENCES hubder_user (username) MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION,
+    CONSTRAINT hubder_match_project_id_fkey FOREIGN KEY (project_id)
+        REFERENCES hubder_project (id) MATCH SIMPLE
         ON UPDATE NO ACTION
         ON DELETE NO ACTION
 )
@@ -99,9 +104,10 @@ insert into hubder_user values ('carlotacatot', 'Carlota', 'Catot', 'Student', '
 insert into hubder_user values ('jpetit', 'Jordi', 'Petit', 'Teacher', 'Computer Science', 'jordi.petit@upc.edu', 'werwear451hjghmj45sgf');
 
 insert into hubder_project values ('sadf5fd1fd18', 'Wisebite', 'Best project ever', 'android,software,app', 'alsumo95');
+insert into hubder_project values ('fads5656fad56df', 'Tinder', 'You know what Tinder is, cmon', 'ios,love,app', 'felixarpa');
 
 insert into hubder_like values ('fadf6787afd78af', 'alsumo95', 'jpetit');
 insert into hubder_like values ('684yiouyoiuo45fsda', 'jpetit', 'felixarpa');
 insert into hubder_like values ('asdfasdf4554asdf54', 'felixarpa', 'jpetit');
 
-insert into hubder_match values ('fasd45asd45df45', 'felixarpa', 'jpetit', 'Software', default);
+insert into hubder_match values ('fasd45asd45df45', 'felixarpa', 'jpetit', 'fads5656fad56df', 'Software', default);
