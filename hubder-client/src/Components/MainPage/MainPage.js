@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
+import NavigationHeader from '../NavigationHeader/NavigationHeader.js';
+import Cards from '../Cards/Cards.js';
 import BpkHorizontalNav, { BpkHorizontalNavItem } from 'bpk-component-horizontal-nav';
 import { BpkGridContainer, BpkGridRow, BpkGridColumn } from 'bpk-component-grid';
 import BpkText from 'bpk-component-text';
-import NavigationHeader from '../NavigationHeader/NavigationHeader.js';
+import styles from './MainPage.scss';
 
 class MainPage extends Component {
   
@@ -10,27 +12,28 @@ class MainPage extends Component {
     super(props);
     this.state = {
       selected: "projects",
-      elements: [ 'profile', 'projects', 'chat' ]
+      elements: [ 'profile', 'projects', 'chat' ],
+      cards: []
     };
   }
 
-  onClick = (e) => {
-    console.log(e.target);
-    console.log('to ' + e.target.name);
-    this.setState({
-      selected: e.target.name,
-    });
-  }
-
   render() {
-    const { selected, elements } = this.state;
+    const { selected, elements, cards } = this.state;
     return (
-      <BpkGridContainer>
+      <BpkGridContainer fullWidth={true}>
         <BpkGridRow>
           <NavigationHeader selected={selected} elements={elements} />
         </BpkGridRow>
         <BpkGridRow>
-          <div>Hola buenos dias</div>
+          <BpkGridColumn width={3} mobileWidth={0} className={styles.column}>
+            Content panel
+          </BpkGridColumn>
+          <BpkGridColumn width={6} mobileWidth={12} className={styles.mainColumn}>
+            <Cards cards={cards}/>
+          </BpkGridColumn>
+          <BpkGridColumn width={3} mobileWidth={0} className={styles.column}>
+            Content panel
+          </BpkGridColumn>
         </BpkGridRow>
       </BpkGridContainer>
     );
