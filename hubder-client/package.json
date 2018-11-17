@@ -6,6 +6,7 @@
     "backpack-react-scripts": "^6.0.0",
     "react": "^16.6.3",
     "react-dom": "^16.6.3",
+    "react-markdown": "^4.0.3",
     "react-router-dom": "^4.3.1",
     "react-scripts": "2.1.1"
   },
@@ -25,6 +26,8 @@
     "not op_mini all"
   ],
   "devDependencies": {
+    "bpk-component-badge": "^1.1.43",
+    "bpk-component-card": "^1.1.43",
     "bpk-component-grid": "^1.1.99",
     "bpk-component-horizontal-nav": "^2.3.32",
     "bpk-component-input": "^3.3.50",
