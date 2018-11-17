@@ -11,7 +11,7 @@ CORS(flask_app)
 
 # Import a module / component using its handler.
 # noinspection PyUnresolvedReferences
-from .api import user, project
+from .api import user, project, like
 
 
 @flask_app.route('/health_check')
