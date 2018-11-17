@@ -56,11 +56,11 @@ class Register extends Component {
               name="speciality"
               value="Computing"
               onChange={(e) => console.log(`select changed to ${e.target.value}`)} >
-                <option value="student">Computing</option>
-                <option value="professor">Software Engineering</option>
-                <option value="coordinator">Technology Information</option>
-                <option value="administrator">Sistems Information</option> 
-                <option value="administrator">Hardware</option> 
+                <option value="computing">Computing</option>
+                <option value="software-engineer">Software Engineering</option>
+                <option value="technology-information">Technology Information</option>
+                <option value="sistem-information">Sistems Information</option> 
+                <option value="hardware">Hardware</option> 
             </BpkSelect>
           </BpkGridRow>
           <BpkGridRow className={styles.formRow}>
