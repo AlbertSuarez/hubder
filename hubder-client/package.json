@@ -5,7 +5,9 @@
   "dependencies": {
     "backpack-react-scripts": "^6.0.0",
     "react": "^16.6.3",
+    "react-bootstrap": "^0.32.4",
     "react-dom": "^16.6.3",
+    "react-router-dom": "^4.3.1",
     "react-scripts": "2.1.1"
   },
   "scripts": {
@@ -22,5 +24,11 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "devDependencies": {
+    "bpk-component-grid": "^1.1.99",
+    "bpk-component-horizontal-nav": "^2.3.32",
+    "bpk-component-input": "^3.3.50",
+    "bpk-component-text": "^1.0.90"
+  }
 }
