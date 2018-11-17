@@ -13,7 +13,7 @@ class MainPage extends Component {
     this.state = {
       selected: "projects",
       elements: [ 'profile', 'projects', 'chat' ],
-      cards: []
+      cards: [ 'lol' ]
     };
   }
 
@@ -25,15 +25,11 @@ class MainPage extends Component {
           <NavigationHeader selected={selected} elements={elements} />
         </BpkGridRow>
         <BpkGridRow>
-          <BpkGridColumn width={3} mobileWidth={0} className={styles.column}>
-            Content panel
-          </BpkGridColumn>
+          <BpkGridColumn width={3} mobileWidth={0} className={styles.column} />
           <BpkGridColumn width={6} mobileWidth={12} className={styles.mainColumn}>
             <Cards cards={cards}/>
           </BpkGridColumn>
-          <BpkGridColumn width={3} mobileWidth={0} className={styles.column}>
-            Content panel
-          </BpkGridColumn>
+          <BpkGridColumn width={3} mobileWidth={0} className={styles.column} />
         </BpkGridRow>
       </BpkGridContainer>
     );
