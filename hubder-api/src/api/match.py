@@ -19,4 +19,4 @@ def match_get_by_specialization():
     if match_list:
         return jsonify(matches=[match.serialize() for match in match_list]), 200
     else:
-        return jsonify(matches=[]), 202
+        return jsonify(matches=[]), 200

@@ -15,15 +15,15 @@ def connect(user, password, database, host, port):
     :param host: DB host.
     :param port: DB port.
     """
-    # postgresql://user:password@host:port/db
+    # Follow the structure: `postgresql://user:password@host:port/db`.
     url_string = 'postgresql://{}:{}@{}:{}/{}'
     url = url_string.format(user, password, host, port, database)
     log.debug('DB URL: ' + url_string.format(user, 'REDACTED', host, port, database))
 
-    # create the connection object
+    # Create the connection object.
     _engine = create_engine(url, client_encoding='utf8')
 
-    # bind connection to create metadata object
+    # Bind connection to create metadata object.
     _meta = MetaData(bind=_engine, reflect=True)
 
     return _engine, _meta

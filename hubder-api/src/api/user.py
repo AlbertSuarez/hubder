@@ -17,6 +17,6 @@ def user_get():
     # Query into user database
     user = db_session().query(User).filter_by(username=username).first()
     if user:
-        return jsonify(user.serialize()), 200
+        return jsonify(user=user.serialize()), 200
     else:
-        return jsonify(message='No user with {} as username'.format(username)), 202
+        return jsonify(user=None), 200

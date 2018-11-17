@@ -19,7 +19,7 @@ def like_get_from_user():
     if like_list:
         return jsonify(likes=[like.serialize() for like in like_list]), 200
     else:
-        return jsonify(message='No likes from {}'.format(username)), 202
+        return jsonify(likes=[]), 200
 
 
 @flask_app.route('/like_to_user', methods=['GET'])
@@ -36,7 +36,7 @@ def like_get_to_user():
     if like_list:
         return jsonify(likes=[like.serialize() for like in like_list]), 200
     else:
-        return jsonify(message='No likes to {}'.format(username)), 202
+        return jsonify(likes=[]), 200
 
 
 @flask_app.route('/like_match', methods=['GET'])

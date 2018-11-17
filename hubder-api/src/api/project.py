@@ -17,6 +17,6 @@ def project_get_by_user():
     # Query into project database
     project = db_session().query(Project).filter_by(project_username=username).first()
     if project:
-        return jsonify(project.serialize()), 200
+        return jsonify(project=project.serialize()), 200
     else:
-        return jsonify(message='No project assigned to {}'.format(username)), 202
+        return jsonify(project=None), 200

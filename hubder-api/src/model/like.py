@@ -10,7 +10,7 @@ class Like(Base):
     """
     SQLAlchemy ORM object for `hubder_like` table
     """
-    # SQLAlchemy built-in for users table
+    # SQLAlchemy built-in for likes table
     __tablename__ = 'hubder_like'
 
     id = db.Column(db.String(100), primary_key=True)

@@ -10,7 +10,7 @@ class Project(Base):
     """
     SQLAlchemy ORM object for `hubder_project` table
     """
-    # SQLAlchemy built-in for users table
+    # SQLAlchemy built-in for projects table
     __tablename__ = 'hubder_project'
 
     id = db.Column(db.String(100), primary_key=True)
