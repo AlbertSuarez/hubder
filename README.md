@@ -17,6 +17,15 @@ via docker-compose
 docker-compose up -d
 ```
 
+## DB
+
+You should initialize the database after running all the stack. For doing this please run the following commands:
+
+```bash
+docker run -it --rm --network hubder hubder_hubder-db psql -h hubder-db -U postgres postgres -f /tmp/create_api_ddl_base.sql
+docker run -it --rm --network hubder hubder_hubder-db psql -h hubder-db -U   hubder   hubder -f /tmp/create_api_ddl_hubder.sql
+```
+
 ## Development
 
 ### API

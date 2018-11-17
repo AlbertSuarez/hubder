@@ -15,6 +15,7 @@ services:
     restart: always
     depends_on:
       - hubder-api-nginx
+      - hubder-db
   hubder-api-nginx:
     container_name: hubder-api-nginx
     build:
@@ -26,7 +27,24 @@ services:
       - 8081:8081
     restart: always
 
+  # Client
+
+
+
+  # DB
+  hubder-db:
+    container_name: hubder-db
+    build:
+      context: hubder-db
+      dockerfile: Dockerfile
+    restart: always
+    networks:
+      - hubder
+    ports:
+      - 5432:5432
+
 # Hubder network
 networks:
   hubder:
-    driver: bridge
+    external:
+      name: hubder
