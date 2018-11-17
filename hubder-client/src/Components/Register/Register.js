@@ -10,6 +10,11 @@ class Register extends Component {
   render() {
     return (
       <BpkGridContainer>
+        <BpkGridColumn offset={5}>
+          <BpkText tagName="h1" textStyle="xl"> 
+            Register 
+          </BpkText>       
+        </BpkGridColumn>
         <BpkGridColumn offset={3} width={6}>
           <BpkGridRow className={styles.formRow}>
             <BpkInput
@@ -75,7 +80,12 @@ class Register extends Component {
             />
           </BpkGridRow>
           <BpkGridRow className={styles.formRow}>  
-            <BpkButton>Register</BpkButton>
+            <BpkButton onClick={
+              //history.push('/home')
+              console.log('item clicked')
+            }>
+              Register
+            </BpkButton>
           </BpkGridRow>            
         </BpkGridColumn>
       </BpkGridContainer>
