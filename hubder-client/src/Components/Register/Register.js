@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import BpkInput, { INPUT_TYPES } from 'bpk-component-input';
 import BpkSelect from 'bpk-component-select';
 import BpkButton from 'bpk-component-button';
+import BpkText from 'bpk-component-text';
 import { BpkGridContainer, BpkGridRow, BpkGridColumn } from 'bpk-component-grid';
 import styles from './Register.css';
 
@@ -10,12 +11,12 @@ class Register extends Component {
   render() {
     return (
       <BpkGridContainer>
-        <BpkGridColumn offset={5}>
-          <BpkText tagName="h1" textStyle="xl"> 
-            Register 
-          </BpkText>       
-        </BpkGridColumn>
         <BpkGridColumn offset={3} width={6}>
+          <BpkGridRow>
+            <BpkText tagName="h1" textStyle="xl"> 
+              Register 
+            </BpkText>
+          </BpkGridRow>
           <BpkGridRow className={styles.formRow}>
             <BpkInput
               id="username"
@@ -54,13 +55,12 @@ class Register extends Component {
             <BpkSelect
               id="speciality"
               name="speciality"
-              value="Computing"
               onChange={(e) => console.log(`select changed to ${e.target.value}`)} >
                 <option value="computing">Computing</option>
                 <option value="software-engineer">Software Engineering</option>
-                <option value="technology-information">Technology Information</option>
-                <option value="sistem-information">Sistems Information</option> 
-                <option value="hardware">Hardware</option> 
+                <option value="technology-information">Information Technologies</option>
+                <option value="sistem-information">Information Systems</option> 
+                <option value="hardware">Computer Engineering</option> 
             </BpkSelect>
           </BpkGridRow>
           <BpkGridRow className={styles.formRow}>
@@ -84,7 +84,7 @@ class Register extends Component {
               //history.push('/home')
               console.log('item clicked')
             }>
-              Register
+              Submit
             </BpkButton>
           </BpkGridRow>            
         </BpkGridColumn>
