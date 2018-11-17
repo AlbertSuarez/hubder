@@ -17,6 +17,7 @@ class User(Base):
     specialization = db.Column(db.String(100))
     email = db.Column(db.String(100))
     password = db.Column(db.String(500))
+    description = db.Column(db.String(500))
 
     def serialize(self):
         """
@@ -30,5 +31,6 @@ class User(Base):
             account_type=self.account_type,
             specialization=self.specialization,
             email=self.email,
-            password=self.password
+            password=self.password,
+            description=self.description
         )

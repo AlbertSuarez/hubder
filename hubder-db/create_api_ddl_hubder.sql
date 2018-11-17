@@ -9,6 +9,7 @@ CREATE TABLE hubder_user
     specialization character varying(100) COLLATE pg_catalog."default",
     email character varying(100) COLLATE pg_catalog."default",
     password character varying(500) COLLATE pg_catalog."default",
+    description character varying(500) COLLATE pg_catalog."default",
     CONSTRAINT hubder_user_pkey PRIMARY KEY (username)
 )
 WITH (
