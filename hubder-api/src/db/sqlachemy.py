@@ -29,15 +29,6 @@ def connect(user, password, database, host, port):
     return _engine, _meta
 
 
-# noinspection PyUnresolvedReferences
-def init():
-    """
-    Initialize models.
-    :return: Models initialized.
-    """
-    from src.model.user import User
-
-
 # Connect to the database.
 engine, meta = connect(HUBDER_DB_USER, HUBDER_DB_PASSWORD, HUBDER_DB_DB, HUBDER_DB_HOST, HUBDER_DB_PORT)
 db_session = scoped_session(sessionmaker(bind=engine))

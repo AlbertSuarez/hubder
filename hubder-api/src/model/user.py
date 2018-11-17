@@ -5,7 +5,7 @@ from src.db.sqlachemy import Base
 
 class User(Base):
     """
-    SQLAlchemy ORM object for `restb_api_models` table
+    SQLAlchemy ORM object for `hubder_user` table
     """
     # SQLAlchemy built-in for users table
     __tablename__ = 'hubder_user'
