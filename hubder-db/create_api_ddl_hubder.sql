@@ -6,6 +6,7 @@ CREATE TABLE hubder_user
     first_name character varying(100) COLLATE pg_catalog."default",
     last_name character varying(100) COLLATE pg_catalog."default",
     account_type character varying(100) COLLATE pg_catalog."default",
+    specialization character varying(100) COLLATE pg_catalog."default",
     email character varying(100) COLLATE pg_catalog."default",
     password character varying(500) COLLATE pg_catalog."default",
     CONSTRAINT hubder_user_pkey PRIMARY KEY (username)
@@ -66,10 +67,10 @@ ALTER TABLE hubder_like
 
 
 
-insert into hubder_user values ('alsumo95', 'Albert', 'Suarez', 'Student', 'alsumo95@gmail.com', 'absdfbsajfbaosebrob72364h45g43');
-insert into hubder_user values ('felixarpa', 'Felix', 'Arribas', 'Student', 'felixarpa@gmail.com', 'glhljklhklj14514jhl');
-insert into hubder_user values ('carlotacatot', 'Carlota', 'Catot', 'Student', 'carlota@gmail.com', 'yrtyrtht411xcvxcv45');
-insert into hubder_user values ('jpetit', 'Jordi', 'Petit', 'Teacher', 'jordi.petit@upc.edu', 'werwear451hjghmj45sgf');
+insert into hubder_user values ('alsumo95', 'Albert', 'Suarez', 'Student', 'Software', 'alsumo95@gmail.com', 'absdfbsajfbaosebrob72364h45g43');
+insert into hubder_user values ('felixarpa', 'Felix', 'Arribas', 'Student', 'Software', 'felixarpa@gmail.com', 'glhljklhklj14514jhl');
+insert into hubder_user values ('carlotacatot', 'Carlota', 'Catot', 'Student', 'Software', 'carlota@gmail.com', 'yrtyrtht411xcvxcv45');
+insert into hubder_user values ('jpetit', 'Jordi', 'Petit', 'Teacher', 'Computer Science', 'jordi.petit@upc.edu', 'werwear451hjghmj45sgf');
 
 insert into hubder_project values ('sadf5fd1fd18', 'Wisebite', 'Best project ever', 'android,software,app', 'alsumo95');
 

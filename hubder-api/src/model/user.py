@@ -14,6 +14,7 @@ class User(Base):
     first_name = db.Column(db.String(100))
     last_name = db.Column(db.String(100))
     account_type = db.Column(db.String(100))
+    specialization = db.Column(db.String(100))
     email = db.Column(db.String(100))
     password = db.Column(db.String(500))
 
@@ -27,6 +28,7 @@ class User(Base):
             first_name=self.first_name,
             last_name=self.last_name,
             account_type=self.account_type,
+            specialization=self.specialization,
             email=self.email,
             password=self.password
         )
