@@ -25,7 +25,7 @@ CREATE TABLE hubder_project
 (
     id character varying(100) NOT NULL COLLATE pg_catalog."default",
     title character varying(100) COLLATE pg_catalog."default",
-    description character varying(100) COLLATE pg_catalog."default",
+    description character varying(1000) COLLATE pg_catalog."default",
     tags character varying(100) COLLATE pg_catalog."default",
     project_username character varying(100) COLLATE pg_catalog."default",
     CONSTRAINT hubder_project_pkey PRIMARY KEY (id),
