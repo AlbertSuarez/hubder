@@ -1,79 +1,64 @@
 import React, { Component } from 'react';
-import { Form, Button, FormGroup, Col, ControlLabel, FormControl, Checkbox } from 'react-bootstrap';
+import BpkInput, { INPUT_TYPES } from 'bpk-component-input';
+import BpkSelect from 'bpk-component-select';
+
 
 class Register extends Component {
 
   render() {
     return (
-      <Form horizontal>
-        <FormGroup controlId="formHorizontalUsername">
-          <Col componentClass={ControlLabel} sm={2}>
-            Username
-          </Col>
-          <Col sm={10}>
-            <FormControl type="text" placeholder="Username" />
-          </Col>
-        </FormGroup>
+      <div>
+        <BpkInput
+          id="username"
+          type={INPUT_TYPES.text}
+          name="username"
+          value=""
+          placeholder="Enter your username"/>
 
-        <FormGroup controlId="formHorizontalName">
-          <Col componentClass={ControlLabel} sm={2}>
-            Name
-          </Col>
-          <Col sm={10}>
-            <FormControl type="text" placeholder="Name" />
-          </Col>
-        </FormGroup>
+        <BpkInput
+          id="name"
+          type={INPUT_TYPES.text}
+          name="name"
+          value=""
+          placeholder="Enter your name"
+        />
 
-        <FormGroup controlId="formHorizontalLastName">
-          <Col componentClass={ControlLabel} sm={2}>
-            Last Name
-          </Col>
-          <Col sm={10}>
-            <FormControl type="text" placeholder="Last Name" />
-          </Col>
-        </FormGroup>
+        <BpkInput
+          id="last-name"
+          type={INPUT_TYPES.text}
+          name="last-name"
+          value=""
+          placeholder="Enter your last name"
+        />
 
-        <FormGroup controlId="formHorizontalLastName">
-          <Col componentClass={ControlLabel} sm={2}>
-            Last Name
-          </Col>
-          <Col sm={10}>
-            <Radio checked readOnly>
-              Student
-            </Radio>
-          </Col>
-        </FormGroup>
-      
-        <FormGroup controlId="formHorizontalEmail">
-          <Col componentClass={ControlLabel} sm={2}>
-            Email
-          </Col>
-          <Col sm={10}>
-            <FormControl type="email" placeholder="Email" />
-          </Col>
-        </FormGroup>
+        <BpkSelect
+          id="account-type"
+          name="account-type"
+          value="Student"
+          onChange={(e) => console.log(`select changed to ${e.target.value}`)} >
+            <option value="student">Student</option>
+            <option value="professor">Professor</option>
+            <option value="coordinator">Coordinator</option>
+            <option value="administrator">Administrator</option>
+        </BpkSelect>
 
-        <FormGroup controlId="formHorizontalPassword">
-          <Col componentClass={ControlLabel} sm={2}>
-            Password
-          </Col>
-          <Col sm={10}>
-            <FormControl type="password" placeholder="Password" />
-          </Col>
-        </FormGroup>
-
-        <FormGroup>
-          <Col smOffset={2} sm={10}>
-            <Checkbox>Remember me</Checkbox>
-          </Col>
-        </FormGroup>
-
-        <FormGroup>
-          <Col smOffset={2} sm={10}>
-            <Button type="submit">Sign in</Button>
-          </Col>
-        </FormGroup>
-      </Form>
+        <BpkInput
+          id="email"
+          type={INPUT_TYPES.text}
+          name="email"
+          value=""
+          placeholder="Enter your email"
+        />
+        
+        <BpkInput
+          id="password"
+          type={INPUT_TYPES.text}
+          name="password"
+          value=""
+          placeholder="Enter your password"
+        />
+        
+      </div>
     );
   }
 }
