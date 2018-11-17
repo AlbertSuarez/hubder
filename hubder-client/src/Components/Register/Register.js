@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import BpkInput, { INPUT_TYPES } from 'bpk-component-input';
 import BpkSelect from 'bpk-component-select';
+import BpkButton from 'bpk-component-button';
 
 
 class Register extends Component {
@@ -42,6 +43,18 @@ class Register extends Component {
             <option value="administrator">Administrator</option>
         </BpkSelect>
 
+        <BpkSelect
+          id="speciality"
+          name="speciality"
+          value="Computing"
+          onChange={(e) => console.log(`select changed to ${e.target.value}`)} >
+            <option value="student">Computing</option>
+            <option value="professor">Software Engineering</option>
+            <option value="coordinator">Technology Information</option>
+            <option value="administrator">Sistems Information</option> 
+            <option value="administrator">Hardware</option> 
+        </BpkSelect>
+
         <BpkInput
           id="email"
           type={INPUT_TYPES.text}
@@ -57,7 +70,9 @@ class Register extends Component {
           value=""
           placeholder="Enter your password"
         />
-        
+
+        <BpkButton>Register</BpkButton>
+
       </div>
     );
   }
