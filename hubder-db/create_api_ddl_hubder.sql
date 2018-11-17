@@ -2,7 +2,7 @@ CREATE SCHEMA hubder AUTHORIZATION hubder;
 
 CREATE TABLE hubder_user
 (
-    username character varying(100) NOT NULL COLLATE pg_catalog."default"
+    username character varying(100) NOT NULL COLLATE pg_catalog."default",
     first_name character varying(100) COLLATE pg_catalog."default",
     last_name character varying(100) COLLATE pg_catalog."default",
     account_type character varying(100) COLLATE pg_catalog."default",
@@ -17,3 +17,6 @@ TABLESPACE pg_default;
 
 ALTER TABLE hubder_user
     OWNER to hubder;
+
+
+insert into hubder_user values ('alsumo95', 'Albert', 'Suarez', 'Student', 'alsumo95@gmail.com', 'absdfbsajfbaosebrob72364h45g43');

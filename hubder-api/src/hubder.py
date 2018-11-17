@@ -1,10 +1,15 @@
 from flask import Flask
 from flask_cors import CORS
 
+from src.db import sqlachemy
+
 
 # Setup Flask app.
 flask_app = Flask(__name__)
 flask_app.config['JSON_AS_ASCII'] = False  # Needed for proper UTF-8 support.
+
+# Setup DB
+sqlachemy.init()
 
 # setup CORS
 CORS(flask_app)
