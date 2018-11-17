@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route,  } from 'react-router-dom';
-import MainPage from './Components/MainPage/MainPage.js';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import MainPage from './Components/MainPage/MainPage.js'
 import './App.css';
 
 class App extends Component {
@@ -8,7 +8,21 @@ class App extends Component {
     return (
       <Router>
         <div>
-          <Route path="/home" exact component={MainPage} />
+          <nav>
+            <ul>
+              <li>
+                <Link to="/">MainPage</Link>
+              </li>
+              <li>
+                <Link to="/chat">Chat</Link>
+              </li>
+              <li>
+                <Link to="/profile">Profile</Link>
+              </li>
+            </ul>
+          </nav>
+
+          <Route path="/" exact component={MainPage} />
         </div>
       </Router>
     );

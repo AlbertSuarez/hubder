@@ -1,0 +1,13 @@
+.container {
+    padding-left: 0em;
+    padding-right: 0em;
+}
+
+.column {
+    padding-left: 0em; 
+    padding-right: 0em;
+}
+
+.mainColumn {
+    @extend .column;
+}
