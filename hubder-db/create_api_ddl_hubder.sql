@@ -1,0 +1,1 @@
+CREATE SCHEMA hubder AUTHORIZATION hubder;
