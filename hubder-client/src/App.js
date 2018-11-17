@@ -1,10 +1,31 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import MainPage from './Components/MainPage/MainPage.js'
 import './App.css';
 
 class App extends Component {
   render() {
     return (
+      <Router>
+        <div>
+          <nav>
+            <ul>
+              <li>
+                <Link to="/">MainPage</Link>
+              </li>
+              <li>
+                <Link to="/chat">Chat</Link>
+              </li>
+              <li>
+                <Link to="/profile">Profile</Link>
+              </li>
+            </ul>
+          </nav>
+
+          <Route path="/" exact component={MainPage} />
+        </div>
+      </Router>
+      /*
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
@@ -21,6 +42,7 @@ class App extends Component {
           </a>
         </header>
       </div>
+      */
     );
   }
 }
