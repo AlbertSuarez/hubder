@@ -6,4 +6,8 @@ function getUserCards(username) {
   return axios.get(BASE_URL + 'user/cards?username=' + username);
 }
 
-module.exports = getUserCards;
+function putUserDescription(username, description) {
+  return axios.put(BASE_URL + 'user', { username: username, description: description });
+}
+
+module.exports = { getUserCards, putUserDescription };
