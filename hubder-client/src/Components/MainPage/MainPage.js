@@ -5,7 +5,7 @@ import BpkHorizontalNav, { BpkHorizontalNavItem } from 'bpk-component-horizontal
 import { BpkGridContainer, BpkGridRow, BpkGridColumn } from 'bpk-component-grid';
 import BpkText from 'bpk-component-text';
 import styles from './MainPage.scss';
-import getUserCards from '../../utils.js';
+import utils from '../../utils.js';
 
 function mapToCard(card) {
   var title = card.project_title;
@@ -35,7 +35,7 @@ class MainPage extends Component {
     super(props);
     this.state = {
       selected: "projects",
-      elements: [ 'profile', 'projects', 'chat' ],
+      elements: [ 'profile', 'projects', 'matches' ],
       cards: []
     };
   }
@@ -49,7 +49,7 @@ class MainPage extends Component {
 
     if (cards.length == 0) {
       const self = this;
-      getUserCards('carlotacatot')
+        utils.getUserCards('carlotacatot')
         .then(function(response) {
           const cards = response.data.cards.map(mapToCard);
           self.setState({ cards: cards });

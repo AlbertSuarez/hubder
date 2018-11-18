@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import BpkInput, { INPUT_TYPES } from 'bpk-component-input';
 import BpkButton from 'bpk-component-button';
 import BpkText from 'bpk-component-text';
+import BpkImage from 'bpk-component-image';
 import { BpkGridContainer, BpkGridRow, BpkGridColumn } from 'bpk-component-grid';
 import styles from './Login.css';
-import { createBrowserHistory } from 'history';
 
 class Register extends Component {
   
@@ -29,6 +29,9 @@ class Register extends Component {
         return (
           <BpkGridContainer>
             <BpkGridColumn offset={3} width={6}>
+              <BpkGridRow>
+                <img src={require('../../logo.png')} width="600" height="150"/>
+              </BpkGridRow>
               <BpkGridRow>
                 <BpkText tagName="h1" textStyle="xl"> 
                   Welcome to Hubder! 
