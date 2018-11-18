@@ -27,6 +27,7 @@ services:
       - 8081:8081
     restart: always
 
+
   # Client
   hubder-client-app:
     container_name: hubder-client-app
