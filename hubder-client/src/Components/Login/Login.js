@@ -13,16 +13,16 @@ class Register extends Component {
       this.state = {
         login: props.login
       };
-      this.submit = this.submit.bind(this);
+      this.login = this.login.bind(this);
+      this.register = this.register.bind(this);
     }
     
     login() {
-        /*history = createBrowserHistory();
-        history.push("/home");*/
+        this.props.history.push("/home");
     }
 
     register() {
-
+      this.props.history.push("/register");
     }
   
     render() {

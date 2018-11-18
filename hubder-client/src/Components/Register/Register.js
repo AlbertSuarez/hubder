@@ -8,6 +8,18 @@ import styles from './Register.css';
 
 class Register extends Component {
 
+  constructor(props) {
+    super(props);
+    this.state = {
+      register: props.register
+    };
+    this.submit = this.submit.bind(this);
+  }
+
+  submit() {
+    this.props.history.push("/home");
+  }
+
   render() {
     return (
       <BpkGridContainer>
@@ -80,10 +92,7 @@ class Register extends Component {
             />
           </BpkGridRow>
           <BpkGridRow className={styles.formRow}>  
-            <BpkButton onClick={
-              //history.push('/home')
-              console.log('item clicked')
-            }>
+            <BpkButton onClick={this.submit}>
               Submit
             </BpkButton>
           </BpkGridRow>            
