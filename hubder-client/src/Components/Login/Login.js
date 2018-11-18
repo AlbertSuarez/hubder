@@ -5,6 +5,7 @@ import BpkText from 'bpk-component-text';
 import BpkImage from 'bpk-component-image';
 import { BpkGridContainer, BpkGridRow, BpkGridColumn } from 'bpk-component-grid';
 import styles from './Login.css';
+import utils from '../../utils.js';
 
 class Register extends Component {
   
@@ -16,15 +17,25 @@ class Register extends Component {
       this.login = this.login.bind(this);
       this.register = this.register.bind(this);
     }
-    
+
     login() {
-        this.props.history.push("/home");
+      const form = this.state;
+      var self = this;
+      utils.postGetUsers(form.username, form.password)
+      .then(function(response) {
+        if (response.data.success) {
+          utils.setCookie('username', form.username);
+          self.props.history.push("/home");
+      })
+      .catch(function(error) {
+        console.log(error);
+      });
     }
 
     register() {
       this.props.history.push("/register");
     }
-  
+
     render() {
         return (
           <BpkGridContainer>
@@ -42,7 +53,8 @@ class Register extends Component {
                   id="username"
                   type={INPUT_TYPES.text}
                   name="username"
-                  placeholder="Enter your username"/>
+                  placeholder="Enter your username"
+                  onChange={(e) => this.setState({ username: e.target.value})}/>
               </BpkGridRow>
               <BpkGridRow className={styles.formRow}>
                 <BpkInput
@@ -50,6 +62,7 @@ class Register extends Component {
                   type={INPUT_TYPES.password}
                   name="password"
                   placeholder="Enter your password"
+                  onChange={(e) => this.setState({ password: e.target.value})}
                 />
               </BpkGridRow>
               <BpkGridRow className={styles.formRow}>  

@@ -30,6 +30,12 @@ const utils = {
     });
   },
 
+  postGetUsers: function(username, password) {
+    const out = sjcl.hash.sha256.hash(password);
+    const hash = sjcl.codec.hex.fromBits(out);
+    return axios.post(BASE_URL + 'user/login', { username: username, password: hash });
+  },
+
   mapToCard: function(card) {
     var title = card.project_title;
     var fullName = card.first_name + " " + card.last_name;
