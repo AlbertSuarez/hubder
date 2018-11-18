@@ -3,7 +3,6 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "backpack-react-scripts": "^6.0.0",
     "react": "^16.6.3",
     "react-dom": "^16.6.3",
     "react-markdown": "^4.0.3",
@@ -26,6 +25,7 @@
     "not op_mini all"
   ],
   "devDependencies": {
+    "backpack-react-scripts": "^6.0.0",
     "bpk-component-badge": "^1.1.43",
     "bpk-component-card": "^1.1.43",
     "bpk-component-grid": "^1.1.99",
