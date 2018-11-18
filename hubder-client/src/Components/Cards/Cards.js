@@ -18,6 +18,10 @@ class Cards extends Component {
     this.dislike = this.dislike.bind(this);
   }
 
+  componentWillReceiveProps(props) {
+    this.setState({ cards: props.cards });
+  }
+
   like() {
     console.log('like');
     // TODO api call to like
@@ -36,10 +40,6 @@ class Cards extends Component {
       cards.shift();
       this.setState({ 'cards': cards });
     }
-  }
-
-  componentWillReceiveProps() {
-    console.log('Hello');
   }
 
   render() {
