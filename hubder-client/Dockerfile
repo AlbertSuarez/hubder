@@ -12,6 +12,7 @@ ENV PATH /usr/src/app/node_modules/.bin:$PATH
 COPY package.json /usr/src/app/package.json
 RUN npm install --silent
 RUN npm install react-scripts@2.1.1 -g --silent
+RUN npm install backpack-react-scripts --silent
 
 # start app
 CMD ["npm", "start"]
