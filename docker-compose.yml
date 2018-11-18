@@ -27,8 +27,21 @@ services:
       - 8081:8081
     restart: always
 
-  # Client
 
+  # Client
+  hubder-client-app:
+    container_name: hubder-client-app
+    build:
+      context: hubder-client
+      dockerfile: Dockerfile
+    volumes:
+      - './hubder-client:/usr/src/app'
+      - '/usr/src/app/node_modules'
+    ports:
+      - 3000:3000
+    environment:
+      - NODE_ENV=development
+    restart: always
 
 
   # DB
