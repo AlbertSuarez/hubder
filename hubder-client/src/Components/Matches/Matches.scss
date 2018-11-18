@@ -1,0 +1,25 @@
+.outlined {
+    display: inline-block;
+    padding: 0 .375rem;
+    background-color: #FFFFFF;
+    border-radius: .1875rem;
+    margin: 0;
+    font-size: .75rem;
+    line-height: 1.125rem;
+    border-style: solid;
+    border-width: 1px;
+    margin-right: 5px;
+    margin-left: 5px;
+    @extend .outlined;
+    color: rgb(0, 178, 214);
+    border-color: rgb(0, 178, 214);
+}
+
+.resultItem {
+    margin-bottom: 3rem;
+}
+
+
+.title {
+    font-weight: bold;
+}
