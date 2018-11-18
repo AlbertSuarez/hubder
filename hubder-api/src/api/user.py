@@ -90,3 +90,25 @@ def user_put():
 
     # Return result.
     return jsonify(success=True), 200
+
+
+@flask_app.route('/user/login', methods=['POST'])
+def user_login():
+    # Retrieve request body.
+    body = request.json
+
+    # Check parameters.
+    required_parameters = ['username', 'password']
+    if not all(x in body for x in required_parameters):
+        return jsonify(success=False), 202
+
+    # Check user existence.
+    user = db_session().query(User).filter_by(username=body['username']).first()
+    if not user:
+        return jsonify(success=False), 202
+
+    # Check password.
+    if user.password == body['password']:
+        return jsonify(success=True), 200
+    else:
+        return jsonify(success=False), 202
