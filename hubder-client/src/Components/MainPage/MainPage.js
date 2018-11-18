@@ -13,7 +13,35 @@ class MainPage extends Component {
     this.state = {
       selected: "projects",
       elements: [ 'profile', 'projects', 'chat' ],
-      cards: [ 'lol' ]
+      cards: [
+        {
+          "description": "Best project ever",
+          "first_name": "Albert",
+          "last_name": "Suarez",
+          "project_tags": "android,software,app",
+          "project_title": "Wisebite",
+          "specialization": "Software",
+          "username": "alsumo95"
+        },
+        {
+          "description": "You know what Tinder is, cmon",
+          "first_name": "Felix",
+          "last_name": "Arribas",
+          "project_tags": "ios,love,app",
+          "project_title": "Tinder",
+          "specialization": "Software",
+          "username": "felixarpa"
+        },
+        {
+          "description": "A good mattress yeah!",
+          "first_name": "Carlota",
+          "last_name": "Catot",
+          "project_tags": "microsoft,mattress",
+          "project_title": "Microsoft mattress",
+          "specialization": "Software",
+          "username": "carlotacatot"
+        }
+      ]
     };
   }
 
@@ -25,11 +53,14 @@ class MainPage extends Component {
           <NavigationHeader selected={selected} elements={elements} />
         </BpkGridRow>
         <BpkGridRow>
-          <BpkGridColumn width={3} mobileWidth={0} className={styles.column} />
-          <BpkGridColumn width={6} mobileWidth={12} className={styles.mainColumn}>
+          <BpkGridColumn
+            offset={3}
+            width={6}
+            mobileOffset={0}
+            mobileWidth={12}
+            className={styles.column}>
             <Cards cards={cards}/>
           </BpkGridColumn>
-          <BpkGridColumn width={3} mobileWidth={0} className={styles.column} />
         </BpkGridRow>
       </BpkGridContainer>
     );
