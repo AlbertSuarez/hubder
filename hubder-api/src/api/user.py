@@ -97,6 +97,10 @@ def user_put():
 
 @flask_app.route('/user/login', methods=['POST'])
 def user_login():
+    """
+    Login a user given some parameters.
+    :return: User logged in.
+    """
     # Retrieve request body.
     body = request.json
 
