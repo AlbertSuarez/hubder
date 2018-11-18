@@ -14,7 +14,7 @@ class MainPage extends Component {
     super(props);
     this.state = {
       selected: "projects",
-      elements: [ 'profile', 'projects', 'chat' ],
+      elements: [ 'profile', 'projects', 'matches' ],
       cards: [],
       username: utils.getCookie('username')
     };
@@ -29,7 +29,7 @@ class MainPage extends Component {
 
     if (cards.length == 0) {
       const self = this;
-      utils.getUserCards('biene')
+      utils.getUserCards(this.state.username)
         .then(function(response) {
           const cards = response.data.cards.map(utils.mapToCard);
           self.setState({ cards: cards });

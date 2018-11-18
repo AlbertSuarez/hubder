@@ -30,10 +30,11 @@
   "devDependencies": {
     "backpack-react-scripts": "^6.0.0",
     "bpk-component-badge": "^1.1.43",
-    "bpk-component-card": "^1.1.43",
     "bpk-component-button": "^2.1.30",
+    "bpk-component-card": "^1.1.43",
     "bpk-component-grid": "^1.1.99",
     "bpk-component-horizontal-nav": "^2.3.32",
+    "bpk-component-image": "^2.0.68",
     "bpk-component-input": "^3.3.50",
     "bpk-component-select": "^2.2.30",
     "bpk-component-text": "^1.0.90"
