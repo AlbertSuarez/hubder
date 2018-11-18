@@ -7,27 +7,6 @@ import BpkText from 'bpk-component-text';
 import styles from './MainPage.scss';
 import utils from '../../utils.js';
 
-function mapToCard(card) {
-  var title = card.project_title;
-  var fullName = card.first_name + " " + card.last_name;
-  var tags = [];
-  var descripcion = card.descripcion || "";
-  if (card.project_title == null) {
-    title = card.first_name + " " + card.last_name;
-    fullName = "";
-  }
-  if (card.project_tags != null) {
-    tags = card.project_tags.split(',');
-  }
-  var cardd = {
-    title: title,
-    tags: tags,
-    descripcion: descripcion,
-    fullName: fullName,
-    specialization: card.specialization
-  }
-  return cardd;
-}
 
 class MainPage extends Component {
   
@@ -36,7 +15,8 @@ class MainPage extends Component {
     this.state = {
       selected: "projects",
       elements: [ 'profile', 'projects', 'matches' ],
-      cards: []
+      cards: [],
+      username: utils.getCookie('username')
     };
   }
 
@@ -49,9 +29,9 @@ class MainPage extends Component {
 
     if (cards.length == 0) {
       const self = this;
-        utils.getUserCards('carlotacatot')
+      utils.getUserCards(this.state.username)
         .then(function(response) {
-          const cards = response.data.cards.map(mapToCard);
+          const cards = response.data.cards.map(utils.mapToCard);
           self.setState({ cards: cards });
         })
         .catch(function(error) {
