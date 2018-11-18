@@ -15,7 +15,7 @@ class Project(Base):
 
     id = db.Column(db.String(100), primary_key=True)
     title = db.Column(db.String(100))
-    description = db.Column(db.String(1000))
+    description = db.Column(db.String(2000))
     tags = db.Column(db.String(100))
     project_username = db.Column(db.String(100), db.ForeignKey('hubder_user.username'), nullable=False)
     user = relationship(User.__name__)
