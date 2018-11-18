@@ -5,6 +5,29 @@ import BpkHorizontalNav, { BpkHorizontalNavItem } from 'bpk-component-horizontal
 import { BpkGridContainer, BpkGridRow, BpkGridColumn } from 'bpk-component-grid';
 import BpkText from 'bpk-component-text';
 import styles from './MainPage.scss';
+import getUserCards from '../../utils.js';
+
+function mapToCard(card) {
+  var title = card.project_title;
+  var fullName = card.first_name + " " + card.last_name;
+  var tags = [];
+  var descripcion = card.descripcion || "";
+  if (card.project_title == null) {
+    title = card.first_name + " " + card.last_name;
+    fullName = "";
+  }
+  if (card.project_tags != null) {
+    tags = card.project_tags.split(',');
+  }
+  var cardd = {
+    title: title,
+    tags: tags,
+    descripcion: descripcion,
+    fullName: fullName,
+    specialization: card.specialization
+  }
+  return cardd;
+}
 
 class MainPage extends Component {
   
@@ -13,40 +36,30 @@ class MainPage extends Component {
     this.state = {
       selected: "projects",
       elements: [ 'profile', 'projects', 'chat' ],
-      cards: [
-        {
-          "description": "Best project ever",
-          "first_name": "Albert",
-          "last_name": "Suarez",
-          "project_tags": "android,software,app",
-          "project_title": "Wisebite",
-          "specialization": "Software",
-          "username": "alsumo95"
-        },
-        {
-          "description": "You know what Tinder is, cmon",
-          "first_name": "Felix",
-          "last_name": "Arribas",
-          "project_tags": "ios,love,app",
-          "project_title": "Tinder",
-          "specialization": "Software",
-          "username": "felixarpa"
-        },
-        {
-          "description": "A good mattress yeah!",
-          "first_name": "Carlota",
-          "last_name": "Catot",
-          "project_tags": "microsoft,mattress",
-          "project_title": "Microsoft mattress",
-          "specialization": "Software",
-          "username": "carlotacatot"
-        }
-      ]
+      cards: []
     };
+  }
+
+  componentWillReceiveProps(props) {
+    this.setState({ cards: props.cards });
   }
 
   render() {
     const { selected, elements, cards } = this.state;
+
+    if (cards.length == 0) {
+      const self = this;
+      getUserCards('carlotacatot')
+        .then(function(response) {
+          const cards = response.data.cards.map(mapToCard);
+          self.setState({ cards: cards });
+        })
+        .catch(function(error) {
+          console.log(error);
+        }
+      );
+    }
+
     return (
       <BpkGridContainer fullWidth={true}>
         <BpkGridRow>
