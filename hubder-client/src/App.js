@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
-import MainPage from './Components/MainPage/MainPage.js'
+import MainPage from './Components/MainPage/MainPage.js';
+import Register from './Components/Register/Register.js';
 import './App.css';
 
 class App extends Component {
@@ -14,7 +15,10 @@ class App extends Component {
                 <Link to="/">MainPage</Link>
               </li>
               <li>
-                <Link to="/chat">Chat</Link>
+                <Link to="/match_list">Match List</Link>
+              </li>
+              <li>
+                <Link to="/register">Register</Link>
               </li>
               <li>
                 <Link to="/profile">Profile</Link>
@@ -22,6 +26,7 @@ class App extends Component {
             </ul>
           </nav>
 
+          <Route path="/register" exact component={Register} />
           <Route path="/" exact component={MainPage} />
         </div>
       </Router>
