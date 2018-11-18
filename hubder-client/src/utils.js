@@ -17,7 +17,6 @@ const utils = {
   postUser: function(username, firstName, lastName, accountType, specialization, email, password) {
     const out = sjcl.hash.sha256.hash(password);
     const hash = sjcl.codec.hex.fromBits(out);
-    console.log(hash);
     return axios.post(BASE_URL + 'user', {
       username: username,
       description: '',
@@ -34,25 +33,29 @@ const utils = {
     var title = card.project_title;
     var fullName = card.first_name + " " + card.last_name;
     var tags = [];
-    var descripcion = card.descripcion || "";
+    var description = card.description;
     if (card.project_title == null) {
       title = card.first_name + " " + card.last_name;
       fullName = "";
     }
-    if (card.project_tags != null) {
-      tags = card.project_tags.split(',');
-    }
+    var tags = card.project_tags != null ?
+      card.project_tags.split(',') :
+      [];
+    var description = card.description == null ?
+      "": card.description;
     var cardd = {
       title: title,
       tags: tags,
-      descripcion: descripcion,
+      description: description,
       fullName: fullName,
-      specialization: card.specialization
+      specialization: card.specialization,
+      username: card.username
     }
     return cardd;
   },
 
   getCookie: function(cname) {
+    return 'carlota';
     var name = cname + "=";
     var decodedCookie = decodeURIComponent(document.cookie);
     var ca = decodedCookie.split(';');
@@ -73,6 +76,13 @@ const utils = {
     d.setTime(d.getTime() + (exdays*24*60*60*1000));
     var expires = "expires="+ d.toUTCString();
     document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+  },
+
+  like: function(from, to) {
+    return axios.post(BASE_URL + 'like', {
+      user_from: from,
+      user_to: to
+    });
   }
 
 }

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import BpkText from 'bpk-component-text';
 
-class NoResults extends Component {
+class Matches extends Component {
   render() {
     return (
       <div>
@@ -9,10 +9,10 @@ class NoResults extends Component {
           alt="Page not found."
           src="https://js.skyscnr.com/sttc/oc-registry/components/not-found/0.1.0/build/static/media/404-2.1afb7c2a.svg"
           />
-        <BpkText>No more results</BpkText>
+        <BpkText>Matches</BpkText>
       </div>
     );
   }
 }
 
-export default NoResults;
+export default Matches;

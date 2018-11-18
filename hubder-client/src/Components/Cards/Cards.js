@@ -5,6 +5,7 @@ import BpkText from 'bpk-component-text';
 import NoResults from '../NoResults/NoResults.js';
 import Card from '../Card/Card.js';
 import ControlButtons from '../ControlButtons/ControlButtons.js';
+import utils from '../../utils.js';
 
 class Cards extends Component {
   
@@ -23,13 +24,25 @@ class Cards extends Component {
   }
 
   like() {
-    console.log('like');
-    // TODO api call to like
-    this.popCard();
+    var self = this;
+    const from = utils.getCookie('username');
+    const to = this.state.cards[0].username;
+    console.log(from);
+    console.log(to);
+    utils.like(from, to)
+      .then(function(response) {
+        console.log(response);
+        if (response.data.match) {
+          console.log('NEW MATCH');
+        }
+        self.popCard();
+      })
+      .catch(function(error) {
+        console.log(error);
+      });
   }
 
   dislike() {
-    console.log('dislike');
     // TODO api call to dislike
     this.popCard();
   }
