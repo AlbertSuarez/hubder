@@ -1,6 +1,7 @@
 from flask import request, jsonify
 from sqlalchemy import or_, and_
 
+from src.model.like import Like
 from src.model.project import Project
 from src.model.user import User
 from src.db.sqlachemy import db_session
@@ -143,19 +144,21 @@ def user_cards():
 
     # Prepare response.
     for user_item in user_list:
-        project = db_session().query(Project).filter_by(project_username=user_item.username).first()
-        description = user_item.description if not project else project.description
-        tags = None if not project else project.tags
-        title = None if not project else project.title
-        cards.append(dict(
-            username=user_item.username,
-            first_name=user_item.first_name,
-            last_name=user_item.last_name,
-            specialization=user_item.specialization,
-            description=description,
-            project_tags=tags,
-            project_title=title
-        ))
+        like = db_session().query(Like).filter_by(user_from=username, user_to=user_item.username).first()
+        if not like:
+            project = db_session().query(Project).filter_by(project_username=user_item.username).first()
+            description = user_item.description if not project else project.description
+            tags = None if not project else project.tags
+            title = None if not project else project.title
+            cards.append(dict(
+                username=user_item.username,
+                first_name=user_item.first_name,
+                last_name=user_item.last_name,
+                specialization=user_item.specialization,
+                description=description,
+                project_tags=tags,
+                project_title=title
+            ))
 
     # Return cards
     return jsonify(cards=cards), 200
