@@ -26,6 +26,7 @@ class Register extends Component {
         if (response.data.success) {
           utils.setCookie('username', form.username);
           self.props.history.push("/home");
+        }
       })
       .catch(function(error) {
         console.log(error);
