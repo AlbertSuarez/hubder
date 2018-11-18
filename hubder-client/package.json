@@ -40,6 +40,7 @@
     "bpk-component-image": "^2.0.68",
     "bpk-component-input": "^3.3.50",
     "bpk-component-select": "^2.2.30",
-    "bpk-component-text": "^1.0.90"
+    "bpk-component-text": "^1.0.90",
+    "bpk-component-textarea": "^1.0.92"
   }
 }
