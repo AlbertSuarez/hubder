@@ -1,5 +1,7 @@
 from flask import request, jsonify
+from sqlalchemy import or_, and_
 
+from src.model.project import Project
 from src.model.user import User
 from src.db.sqlachemy import db_session
 from src.hubder import flask_app
@@ -112,3 +114,48 @@ def user_login():
         return jsonify(success=True), 200
     else:
         return jsonify(success=False), 202
+
+
+@flask_app.route('/user/cards', methods=['GET'])
+def user_cards():
+    """
+    Retrieve cards given a username.
+    :return: List of cards.
+    """
+    # Retrieve query parameters.
+    username = request.args.get('username')
+
+    # Query into user database.
+    user = db_session().query(User).filter_by(username=username).first()
+    if not user:
+        return jsonify(cards=[]), 200
+
+    # Retrieve target users.
+    cards = []
+    if user.account_type == 'Student':
+        user_list = db_session().query(User).filter(and_(or_(
+            User.account_type == 'Teacher', User.account_type == 'Coordinator'
+        ), User.specialization == user.specialization))
+    else:
+        user_list = db_session().query(User).filter(and_(
+            User.account_type == 'Student', User.specialization == user.specialization
+        ))
+
+    # Prepare response.
+    for user_item in user_list:
+        project = db_session().query(Project).filter_by(project_username=user_item.username).first()
+        description = user_item.description if not project else project.description
+        tags = None if not project else project.tags
+        title = None if not project else project.title
+        cards.append(dict(
+            username=user_item.username,
+            first_name=user_item.first_name,
+            last_name=user_item.last_name,
+            specialization=user_item.specialization,
+            description=description,
+            project_tags=tags,
+            project_title=title
+        ))
+
+    # Return cards
+    return jsonify(cards=cards), 200
