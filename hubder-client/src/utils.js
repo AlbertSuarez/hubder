@@ -61,7 +61,7 @@ const utils = {
   },
 
   getCookie: function(cname) {
-    return 'felix';
+    // return 'felix';
     var name = cname + "=";
     var decodedCookie = decodeURIComponent(document.cookie);
     var ca = decodedCookie.split(';');
