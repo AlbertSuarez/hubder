@@ -40,3 +40,27 @@ def match_get_by_user():
         return jsonify(matches=[match.serialize() for match in match_list]), 200
     else:
         return jsonify(matches=[]), 200
+
+
+@flask_app.route('/match_status', methods=['PUT'])
+def match_put_status():
+    # Retrieve request body.
+    body = request.json
+
+    # Check parameters.
+    required_parameters = ['id', 'status']
+    if not all(x in body for x in required_parameters):
+        return jsonify(success=False), 202
+
+    # Check match existence.
+    match = db_session().query(Match).filter_by(id=body['id']).first()
+    if not match:
+        return jsonify(success=False), 201
+
+    # Set parameters.
+    if body['status'] in ['PENDING', 'ACCEPTED', 'DECLINED']:
+        match.status = body['status']
+        db_session().commit()
+        return jsonify(success=True), 200
+    else:
+        return jsonify(success=False), 202

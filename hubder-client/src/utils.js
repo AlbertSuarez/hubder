@@ -61,7 +61,7 @@ const utils = {
   },
 
   getCookie: function(cname) {
-    return 'carlota';
+    return 'felix';
     var name = cname + "=";
     var decodedCookie = decodeURIComponent(document.cookie);
     var ca = decodedCookie.split(';');
@@ -118,6 +118,10 @@ const utils = {
 
   getProject: function(username) {
     return axios.get(BASE_URL + 'project?username= ' + username);
+  },
+ 
+  getUserMatches: function(username) {
+    return axios.get(BASE_URL + 'match_by_user?username=' + username);
   }
 
 }
