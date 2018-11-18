@@ -97,6 +97,10 @@ def user_put():
 
 @flask_app.route('/user/login', methods=['POST'])
 def user_login():
+    """
+    Login a user given some parameters.
+    :return: User logged in.
+    """
     # Retrieve request body.
     body = request.json
 
@@ -136,11 +140,11 @@ def user_cards():
     if user.account_type == 'Student':
         user_list = db_session().query(User).filter(and_(or_(
             User.account_type == 'Teacher', User.account_type == 'Coordinator'
-        ), User.specialization == user.specialization))
+        ), User.specialization == user.specialization)).all()
     else:
         user_list = db_session().query(User).filter(and_(
             User.account_type == 'Student', User.specialization == user.specialization
-        ))
+        )).all()
 
     # Prepare response.
     for user_item in user_list:
