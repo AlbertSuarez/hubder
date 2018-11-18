@@ -139,7 +139,7 @@ def user_cards():
     cards = []
     if user.account_type == 'Student':
         user_list = db_session().query(User).filter(and_(or_(
-            User.account_type == 'Teacher', User.account_type == 'Coordinator'
+            User.account_type == 'Professor', User.account_type == 'Coordinator'
         ), User.specialization == user.specialization)).all()
     else:
         user_list = db_session().query(User).filter(and_(
