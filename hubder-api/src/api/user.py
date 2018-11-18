@@ -56,3 +56,37 @@ def user_post():
 
     # Return result.
     return jsonify(success=True), 201
+
+
+@flask_app.route('/user', methods=['PUT'])
+def user_put():
+    """
+    Update a user given some parameters.
+    :return: User updated.
+    """
+    # Retrieve request body.
+    body = request.json
+
+    # Check parameters.
+    required_parameters = ['username']
+    if not all(x in body for x in required_parameters):
+        return jsonify(success=False), 202
+
+    # Check user existence.
+    user = db_session().query(User).filter_by(username=body['username']).first()
+    if not user:
+        return jsonify(success=False), 201
+
+    # Set parameters.
+    user.first_name = user.first_name if 'first_name' not in body else body['first_name']
+    user.last_name = user.last_name if 'last_name' not in body else body['last_name']
+    user.account_type = user.account_type if 'account_type' not in body else body['account_type']
+    user.specialization = user.specialization if 'specialization' not in body else body['specialization']
+    user.email = user.email if 'email' not in body else body['email']
+    user.description = user.description if 'description' not in body else body['description']
+
+    # Save updates.
+    db_session().commit()
+
+    # Return result.
+    return jsonify(success=True), 200
