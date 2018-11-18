@@ -13,25 +13,33 @@ class Cards extends Component {
     this.state = {
       cards: props.cards
     };
+    this.popCard = this.popCard.bind(this);
+    this.like = this.like.bind(this);
+    this.dislike = this.dislike.bind(this);
   }
 
   like() {
     console.log('like');
     // TODO api call to like
-    popCard();
+    this.popCard();
   }
 
   dislike() {
     console.log('dislike');
     // TODO api call to dislike
-    popCard();
+    this.popCard();
   }
 
   popCard() {
-    const cards = this.state.cards.pop();
-    this.setState({
-      cards: cards
-    });
+    if (this.state.cards.length > 0) {
+      var cards = this.state.cards;
+      cards.shift();
+      this.setState({ 'cards': cards });
+    }
+  }
+
+  componentWillReceiveProps() {
+    console.log('Hello');
   }
 
   render() {
@@ -41,10 +49,12 @@ class Cards extends Component {
       return (<NoResults/>);
     }
 
+    const card = (<Card info={cards[0]}/>);
+
     return (
       <BpkGridContainer fullWidth={true}>
         <BpkGridRow>
-          <Card info={cards[0]}/>
+          {card}
         </BpkGridRow>
         <BpkGridRow>
           <ControlButtons like={this.like} dislike={this.dislike} />

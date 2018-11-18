@@ -101,13 +101,13 @@ ALTER TABLE hubder_match
 insert into hubder_user values ('alsumo95', 'Albert', 'Suarez', 'Student', 'Software', 'alsumo95@gmail.com', 'absdfbsajfbaosebrob72364h45g43');
 insert into hubder_user values ('felixarpa', 'Felix', 'Arribas', 'Student', 'Software', 'felixarpa@gmail.com', 'glhljklhklj14514jhl');
 insert into hubder_user values ('carlotacatot', 'Carlota', 'Catot', 'Student', 'Software', 'carlota@gmail.com', 'yrtyrtht411xcvxcv45');
-insert into hubder_user values ('jpetit', 'Jordi', 'Petit', 'Teacher', 'Computer Science', 'jordi.petit@upc.edu', 'werwear451hjghmj45sgf');
+insert into hubder_user values ('carme', 'Carme', 'Quer', 'Teacher', 'Software', 'carme.quer@upc.edu', 'werwear451hjghmj45sgf');
 
 insert into hubder_project values ('sadf5fd1fd18', 'Wisebite', 'Best project ever', 'android,software,app', 'alsumo95');
 insert into hubder_project values ('fads5656fad56df', 'Tinder', 'You know what Tinder is, cmon', 'ios,love,app', 'felixarpa');
 
-insert into hubder_like values ('fadf6787afd78af', 'alsumo95', 'jpetit');
-insert into hubder_like values ('684yiouyoiuo45fsda', 'jpetit', 'felixarpa');
-insert into hubder_like values ('asdfasdf4554asdf54', 'felixarpa', 'jpetit');
+insert into hubder_like values ('fadf6787afd78af', 'alsumo95', 'carme');
+insert into hubder_like values ('684yiouyoiuo45fsda', 'carme', 'felixarpa');
+insert into hubder_like values ('asdfasdf4554asdf54', 'felixarpa', 'carme');
 
-insert into hubder_match values ('fasd45asd45df45', 'felixarpa', 'jpetit', 'fads5656fad56df', 'Software', default);
+insert into hubder_match values ('fasd45asd45df45', 'felixarpa', 'carme', 'fads5656fad56df', 'Software', default);
