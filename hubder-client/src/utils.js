@@ -91,6 +91,35 @@ const utils = {
     });
   },
 
+  getUserData: function(username) {
+    return axios.get(BASE_URL + 'user?username=' + username);
+  },
+
+  editProfile: function(description, first_name, last_name, account_type, specialization, email) {
+    return axios.put(BASE_URL + 'user', {
+      description: description,
+      first_name: first_name,
+      last_name: last_name,
+      account_type: account_type,
+      specialization: specialization,
+      email: email,
+    });
+  },
+
+  createProject: function(title, description, tags, project_username) {
+    console.log(title, description, tags, project_username);
+    return axios.post(BASE_URL + 'project', {
+      title: title,
+      description: description,
+      tags: tags || "",
+      project_username: project_username
+    });
+  },
+
+  getProject: function(username) {
+    return axios.get(BASE_URL + 'project?username= ' + username);
+  },
+ 
   getUserMatches: function(username) {
     return axios.get(BASE_URL + 'match_by_user?username=' + username);
   }
