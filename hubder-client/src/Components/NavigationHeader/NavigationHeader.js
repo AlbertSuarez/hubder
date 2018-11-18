@@ -9,14 +9,12 @@ class NavigationHeader extends Component {
     super(props);
     this.state = {
       selected: props.selected,
+      changeElement: props.changeElement
     };
   }
 
-  onClick = (e) => {
-    this.setState({
-      selected: e.target.name,
-    });
-    // TODO swap page
+  componentWillReceiveProps(props) {
+    this.setState({ selected: props.selected });
   }
 
   render() {
@@ -27,7 +25,9 @@ class NavigationHeader extends Component {
             key={index}
             name={element}
             selected={this.state.selected === element}
-            onClick={this.onClick}
+            onClick={(e) => {
+              this.state.changeElement(e.target.name);
+            }}
             spaceAround={true}>
             <BpkText>{element.toUpperCase()}</BpkText>
           </BpkHorizontalNavItem>
