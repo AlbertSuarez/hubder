@@ -127,5 +127,8 @@ insert into hubder_project values ('801bdb20-16a9-4fdd-a8b6-eca7d45f6112', 'Skyw
 insert into hubder_like values ('676f651a-2ea3-4309-a251-f43e47b061c3', 'albert', 'ernest');
 insert into hubder_like values ('6df775d2-6755-43c9-8d9a-4ae827751c1b', 'carme', 'felix');
 insert into hubder_like values ('b38d0d77-350c-4b25-9ed7-c20bf28eb637', 'felix', 'carme');
+insert into hubder_like values ('ee665699-7bed-4a5c-822f-6e23f0e1372f', 'mariajose', 'felix');
+insert into hubder_like values ('89b49a0d-f8d1-43d9-87df-7767c9278056', 'felix', 'mariajose');
 
 insert into hubder_match values ('fa21253c-a025-4770-a284-db9d9e521d7f', 'felix', 'carme', '801bdb20-16a9-4fdd-a8b6-eca7d45f6112', 'Software', default);
+insert into hubder_match values ('a1a16895-ef0e-4dfc-9d79-4f49ae821417', 'felix', 'mariajose', '801bdb20-16a9-4fdd-a8b6-eca7d45f6112', 'Software', default);
